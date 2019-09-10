@@ -1,3 +1,7 @@
+EPOCH unix time: https://en.wikipedia.org/wiki/Unix_time
+
+Please see: `Comparison Queries Cheat Sheet` at http://learn.ironhack.com/#/learning_unit/6471
+
 ## #1 
   
 Yields all the movies with a rate greater or equals to 8.9, showing the title, the rate but no id, sorted by rate descendant.
@@ -70,3 +74,39 @@ Yields only 20 movies starting in the 41th movie
 
 limit: `20`
 skip: `40`
+
+## #12
+  
+Yields all the movies that are science fiction or drama (all of both categories)
+
+filter: `{genre: {$in: ["Sci-Fi", "Drama"]}}`
+
+## #13
+  
+Yields all the movies that are not science fiction
+
+filter: `{genre: {$nin: ["Sci-Fi"]}}`
+
+## #14
+  
+Yields all the movies that are both science fiction and drama
+
+filter: `{genre: {$all: ["Sci-Fi", "Drama"]}}`
+
+## #14
+  
+Yields all the restaurants having an A grade but also a score greater or equals to 15. Please remember this applies to arrays of objects.
+
+filter: `{ grades: { $elemMatch: { grade: "A", score: { $gte: 15 } } } }`
+
+## #15
+  
+Yields all the movies not having director 
+
+filter: `{director: {$exists: false}}`
+
+## #16
+  
+Yields all the movies not having director and having year greater than 1972
+
+filter: `{$and: [{director: {$exists: false}}, {year: {$gt: 1972}}]}`
