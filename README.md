@@ -1,3 +1,7 @@
+## How to install express
+
+`npm i express` and then run it via `nodemon web-server.js`
+
 ## How to run the nodejs conversion server
 
 In order to run the nodejs conversion server please issue 
